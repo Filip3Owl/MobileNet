@@ -1,0 +1,22 @@
+# Dados
+data/
+
+# Ambiente virtual
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# macOS
+.DS_Store
+
+# Modelos e dados gerados
+*.pkl
+*.joblib
