@@ -53,7 +53,8 @@ MobileNet/
 │   ├── eda/                    # stage 1 — exploratory data analysis
 │   ├── training/               # stage 2 — learning curves
 │   └── evaluation/             # stage 3-5 — metrics and results
-├── mobile_price_mlp.ipynb
+├── mobile_price_mlp.ipynb      # stage 1 — data treatment
+├── 02_mlp_implementation.ipynb # stage 2 — MLP implementation
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -103,7 +104,7 @@ jupyter notebook
 - Normalization with `StandardScaler`
 - Train/validation split (80/20, stratified)
 
-### [TODO] Stage 2 — MLP Implementation
+### [IN PROGRESS] Stage 2 — MLP Implementation
 - Architecture definition (layers, neurons, activation functions)
 - Training with `MLPClassifier` from scikit-learn
 - Learning curve (loss per epoch)
