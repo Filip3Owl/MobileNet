@@ -20,21 +20,21 @@ Classificação de faixa de preço de celulares com rede neural MLP.
 
 Given a set of technical specifications for mobile devices, the goal is to predict the price range (`price_range`) across four categories:
 
-| Class | Description   |
-|-------|---------------|
-| 0     | Low cost      |
-| 1     | Medium cost   |
-| 2     | High cost     |
-| 3     | Very high cost|
+| Class | Description    |
+|-------|----------------|
+| 0     | Low cost       |
+| 1     | Medium cost    |
+| 2     | High cost      |
+| 3     | Very high cost |
 
 ---
 
 ## Dataset
 
-| File             | Description                              |
-|------------------|------------------------------------------|
-| `data/train.csv` | 2000 samples with `price_range` label    |
-| `data/test.csv`  | Samples for prediction                   |
+| File             | Description                           |
+|------------------|---------------------------------------|
+| `data/train.csv` | 2000 samples with `price_range` label |
+| `data/test.csv`  | Samples for prediction                |
 
 > Data files are not versioned. Add them manually to the `data/` folder.
 
@@ -47,9 +47,12 @@ Given a set of technical specifications for mobile devices, the goal is to predi
 ```
 MobileNet/
 ├── data/
-│   ├── train.csv          # not versioned
-│   └── test.csv           # not versioned
-├── images/                # generated plots
+│   ├── train.csv               # not versioned
+│   └── test.csv                # not versioned
+├── images/
+│   ├── eda/                    # stage 1 — exploratory data analysis
+│   ├── training/               # stage 2 — learning curves
+│   └── evaluation/             # stage 3-5 — metrics and results
 ├── mobile_price_mlp.ipynb
 ├── requirements.txt
 ├── .gitignore
@@ -66,6 +69,26 @@ source venv/bin/activate
 pip install -r requirements.txt
 jupyter notebook
 ```
+
+---
+
+## Exploratory Data Analysis
+
+**Target variable distribution**
+
+![Target Distribution](images/eda/01_target_distribution.png)
+
+**Pearson correlation heatmap**
+
+![Correlation Heatmap](images/eda/02_correlation_heatmap.png)
+
+**Top features distribution per class**
+
+![Features Boxplots](images/eda/03_features_boxplots.png)
+
+**Train / Validation split**
+
+![Train Val Split](images/eda/04_train_val_split.png)
 
 ---
 
