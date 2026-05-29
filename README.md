@@ -1,10 +1,10 @@
-# 📱 MobileNet — Classificação de Faixa de Preço com MLP
+# MobileNet — Mobile Price Range Classification
 
 Classificação de faixa de preço de celulares com rede neural MLP.
 
 ---
 
-## 🛠️ Tecnologias
+## Technologies
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
@@ -16,39 +16,40 @@ Classificação de faixa de preço de celulares com rede neural MLP.
 
 ---
 
-## 🎯 Problema
+## Problem
 
-Dado um conjunto de especificações técnicas de dispositivos móveis, o objetivo é prever a faixa de preço (`price_range`) em quatro categorias:
+Given a set of technical specifications for mobile devices, the goal is to predict the price range (`price_range`) across four categories:
 
-| Classe | Descrição        |
-|--------|------------------|
-| 0      | Baixo custo      |
-| 1      | Custo médio      |
-| 2      | Alto custo       |
-| 3      | Custo muito alto |
-
----
-
-## 📂 Dataset
-
-| Arquivo          | Descrição                              |
-|------------------|----------------------------------------|
-| `data/train.csv` | 2000 amostras com rótulo `price_range` |
-| `data/test.csv`  | Amostras para predição                 |
-
-> Os arquivos de dados não estão versionados. Adicione-os manualmente na pasta `data/`.
-
-**Features disponíveis (20):** bateria, RAM, câmera frontal e traseira, memória interna, profundidade, peso, número de núcleos, resolução de tela, tamanho da tela, tempo de chamada, e conectividade (Bluetooth, 4G, 3G, Wi-Fi, dual SIM, touch screen).
+| Class | Description   |
+|-------|---------------|
+| 0     | Low cost      |
+| 1     | Medium cost   |
+| 2     | High cost     |
+| 3     | Very high cost|
 
 ---
 
-## 🗂️ Estrutura do projeto
+## Dataset
+
+| File             | Description                              |
+|------------------|------------------------------------------|
+| `data/train.csv` | 2000 samples with `price_range` label    |
+| `data/test.csv`  | Samples for prediction                   |
+
+> Data files are not versioned. Add them manually to the `data/` folder.
+
+**Available features (20):** battery power, RAM, front and rear camera, internal memory, depth, weight, number of cores, screen resolution, screen size, talk time, and connectivity (Bluetooth, 4G, 3G, Wi-Fi, dual SIM, touch screen).
+
+---
+
+## Project Structure
 
 ```
 MobileNet/
 ├── data/
-│   ├── train.csv          # não versionado
-│   └── test.csv           # não versionado
+│   ├── train.csv          # not versioned
+│   └── test.csv           # not versioned
+├── images/                # generated plots
 ├── mobile_price_mlp.ipynb
 ├── requirements.txt
 ├── .gitignore
@@ -57,7 +58,7 @@ MobileNet/
 
 ---
 
-## 🚀 Configuração do ambiente
+## Setup
 
 ```bash
 python3 -m venv venv
@@ -68,32 +69,33 @@ jupyter notebook
 
 ---
 
-## 🗺️ Plano do projeto
+## Project Roadmap
 
-### ✅ Etapa 1 — Tratamento de dados
-- Carregamento dos CSVs
-- Análise exploratória (EDA): tipos, estatísticas descritivas, valores ausentes
-- Visualização da distribuição da variável alvo
-- Mapa de correlação entre features
-- Normalização com `StandardScaler`
-- Divisão treino/validação (80/20, estratificada)
+### [DONE] Stage 1 — Data Treatment
+- CSV loading and inspection
+- Exploratory data analysis: dtypes, descriptive statistics, missing values
+- Target variable distribution plot
+- Pearson correlation heatmap
+- Top features boxplots per class
+- Normalization with `StandardScaler`
+- Train/validation split (80/20, stratified)
 
-### 🔲 Etapa 2 — Implementação do MLP
-- Definição da arquitetura (camadas, neurônios, funções de ativação)
-- Treinamento com `MLPClassifier` do scikit-learn
-- Curva de aprendizado (loss por época)
+### [TODO] Stage 2 — MLP Implementation
+- Architecture definition (layers, neurons, activation functions)
+- Training with `MLPClassifier` from scikit-learn
+- Learning curve (loss per epoch)
 
-### 🔲 Etapa 3 — Avaliação do modelo
-- Acurácia em treino e validação
-- Matriz de confusão
-- Relatório de classificação (precision, recall, F1-score por classe)
+### [TODO] Stage 3 — Model Evaluation
+- Training and validation accuracy
+- Confusion matrix
+- Classification report (precision, recall, F1-score per class)
 
-### 🔲 Etapa 4 — Ajuste de hiperparâmetros
-- Busca por grid search ou random search
-- Parâmetros avaliados: número de camadas, neurônios, taxa de aprendizado, regularização
-- Comparação dos resultados
+### [TODO] Stage 4 — Hyperparameter Tuning
+- Grid search or random search
+- Parameters: number of layers, neurons, learning rate, regularization
+- Results comparison
 
-### 🔲 Etapa 5 — Resultados finais
-- Melhor modelo selecionado
-- Predição no conjunto de teste
-- Análise dos erros e conclusões
+### [TODO] Stage 5 — Final Results
+- Best model selection
+- Prediction on test set
+- Error analysis and conclusions
