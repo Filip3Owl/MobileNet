@@ -55,7 +55,8 @@ MobileNet/
 │   └── evaluation/             # stage 3-5 — metrics and results
 ├── notebooks/
 │   ├── 01_data_treatment.ipynb
-│   └── 02_mlp_implementation.ipynb
+│   ├── 02_mlp_implementation.ipynb
+│   └── 03_evaluation.ipynb
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -105,12 +106,12 @@ jupyter notebook
 - Normalization with `StandardScaler`
 - Train/validation split (80/20, stratified)
 
-### [IN PROGRESS] Stage 2 — MLP Implementation
+### [DONE] Stage 2 — MLP Implementation
 - Architecture definition (layers, neurons, activation functions)
 - Training with `MLPClassifier` from scikit-learn
 - Learning curve (loss per epoch)
 
-### [TODO] Stage 3 — Model Evaluation
+### [IN PROGRESS] Stage 3 — Model Evaluation
 - Training and validation accuracy
 - Confusion matrix
 - Classification report (precision, recall, F1-score per class)
