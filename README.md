@@ -53,8 +53,9 @@ MobileNet/
 │   ├── eda/                    # stage 1 — exploratory data analysis
 │   ├── training/               # stage 2 — learning curves
 │   └── evaluation/             # stage 3-5 — metrics and results
-├── mobile_price_mlp.ipynb      # stage 1 — data treatment
-├── 02_mlp_implementation.ipynb # stage 2 — MLP implementation
+├── notebooks/
+│   ├── 01_data_treatment.ipynb
+│   └── 02_mlp_implementation.ipynb
 ├── requirements.txt
 ├── .gitignore
 └── README.md
