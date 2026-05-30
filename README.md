@@ -125,6 +125,31 @@ jupyter notebook
 
 ---
 
+## Ajuste de Hiperparâmetros
+
+**Distribuição dos scores — RandomizedSearchCV**
+
+![Busca de Hiperparâmetros](images/evaluation/03_hyperparam_search.png)
+
+> Foram testadas 40 combinações aleatórias com validação cruzada de 3 folds. O melhor score (F1-macro = 0,9511) superou o baseline (0,9198) em todas as combinações do top-20. A busca confirmou que o espaço de hiperparâmetros explorado continha configurações significativamente melhores que o ponto de partida.
+
+**Comparação: Baseline vs. Melhor Modelo**
+
+![Comparação de Modelos](images/evaluation/04_model_comparison.png)
+
+> O ajuste de hiperparâmetros trouxe um ganho de **+3,5 p.p. em acurácia** (0,92 → 0,955) e **+3,53 p.p. em F1-macro** (0,9198 → 0,9551). A configuração vencedora foi:
+>
+> | Parâmetro            | Baseline   | Melhor Modelo |
+> |----------------------|------------|---------------|
+> | `hidden_layer_sizes` | (128, 64)  | (256, 128)    |
+> | `activation`         | relu       | tanh          |
+> | `alpha`              | 0,0001     | 0,1           |
+> | `learning_rate_init` | 0,001      | 0,001         |
+> | Acurácia (validação) | 92,00%     | **95,50%**    |
+> | F1-macro (validação) | 91,98%     | **95,51%**    |
+
+---
+
 ## Roadmap do Projeto
 
 ### [CONCLUÍDO] Etapa 1 — Tratamento de Dados
@@ -146,7 +171,7 @@ jupyter notebook
 - Matriz de confusão
 - Relatório de classificação (precisão, revocação, F1-score por classe)
 
-### [TODO] Etapa 4 — Ajuste de Hiperparâmetros
+### [CONCLUÍDO] Etapa 4 — Ajuste de Hiperparâmetros
 - Grid search ou random search
 - Parâmetros: número de camadas, neurônios, taxa de aprendizado, regularização
 - Comparação de resultados
