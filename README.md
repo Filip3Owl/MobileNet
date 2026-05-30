@@ -150,6 +150,22 @@ jupyter notebook
 
 ---
 
+## Resultados Finais
+
+**Distribuição das predições — Conjunto de Teste**
+
+![Predições no Teste](images/evaluation/05_test_predictions.png)
+
+> O modelo de produção (treinado em 100% dos dados) gerou predições bastante equilibradas entre as classes: 256 (Baixo), 227 (Médio), 258 (Alto) e 259 (Muito alto). A distribuição próxima a 25% por classe é coerente com o dataset de treino perfeitamente balanceado, indicando que o modelo não tem viés sistemático em direção a nenhuma faixa.
+
+**Importância das features por permutação**
+
+![Importância das Features](images/evaluation/06_feature_importance.png)
+
+> A **RAM** é de longe a feature mais crítica — embaralhá-la causa uma queda de ~68 p.p. de acurácia, o que confirma o que a correlação de Pearson já indicava. Em segundo lugar, **potência da bateria** (~21 p.p.), seguida de **resolução largura** e **resolução altura** (~10 p.p. cada). As demais 16 features têm importância próxima de zero individualmente, ou seja, o modelo consegue classificar bem com apenas 4 features dominando a decisão.
+
+---
+
 ## Roadmap do Projeto
 
 ### [CONCLUÍDO] Etapa 1 — Tratamento de Dados
@@ -176,7 +192,7 @@ jupyter notebook
 - Parâmetros: número de camadas, neurônios, taxa de aprendizado, regularização
 - Comparação de resultados
 
-### [TODO] Etapa 5 — Resultados Finais
+### [CONCLUÍDO] Etapa 5 — Resultados Finais
 - Seleção do melhor modelo
 - Predição no conjunto de teste
 - Análise de erros e conclusões
