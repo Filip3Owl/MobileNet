@@ -81,13 +81,21 @@ jupyter notebook
 
 ![Distribuição do Alvo](images/eda/01_target_distribution.png)
 
+> O dataset é perfeitamente balanceado: cada uma das 4 classes possui exatamente 500 amostras (25% do total). Isso elimina o risco de viés do modelo em favor de classes majoritárias e torna a acurácia uma métrica confiável para avaliação.
+
 **Mapa de correlação de Pearson**
 
 ![Mapa de Correlação](images/eda/02_correlation_heatmap.png)
 
+> A **RAM** é a feature mais correlacionada com `faixa_preco` (r ≈ 0,92), seguida de `potencia_bateria`, `resolucao_largura` e `resolucao_altura`. A maioria das features não apresenta alta correlação entre si, o que indica baixa multicolinearidade e que cada variável contribui com informação independente ao modelo.
+
 **Distribuição das top features por classe**
 
 ![Boxplots das Features](images/eda/03_features_boxplots.png)
+
+> - **RAM (MB):** feature com maior poder discriminativo — as medianas por classe são claramente separadas (~750, ~1600, ~2600, ~3500 MB), com mínima sobreposição entre classes adjacentes.
+> - **Potência Bateria e Resolução:** apresentam tendência crescente da classe 0 para a 3, mas com sobreposição considerável entre classes, sendo features de suporte ao modelo.
+> - **Memória Interna e Largura da Tela:** distribuições muito similares entre as 4 classes, indicando baixo poder discriminativo isolado — contribuem marginalmente para a classificação.
 
 ---
 
@@ -96,6 +104,8 @@ jupyter notebook
 **Curva de aprendizado — Entropia Cruzada**
 
 ![Curva de Aprendizado](images/training/01_learning_curve.png)
+
+> Ambas as curvas convergem rapidamente nas primeiras 10 iterações. A perda de treino chega próximo de zero (~0,03), enquanto a de validação estabiliza em torno de 0,12 — um gap esperado e dentro de um nível aceitável de overfitting. O *early stopping* interrompeu o treinamento em ~53 iterações sem melhora na validação, evitando sobreajuste adicional.
 
 ---
 
