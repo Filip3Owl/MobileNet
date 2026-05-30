@@ -4,7 +4,7 @@ Classificação de faixa de preço de celulares com rede neural MLP.
 
 ---
 
-## Technologies
+## Tecnologias
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
@@ -16,43 +16,43 @@ Classificação de faixa de preço de celulares com rede neural MLP.
 
 ---
 
-## Problem
+## Problema
 
-Given a set of technical specifications for mobile devices, the goal is to predict the price range (`price_range`) across four categories:
+Dado um conjunto de especificações técnicas de dispositivos móveis, o objetivo é prever a faixa de preço (`faixa_preco`) em quatro categorias:
 
-| Class | Description    |
-|-------|----------------|
-| 0     | Low cost       |
-| 1     | Medium cost    |
-| 2     | High cost      |
-| 3     | Very high cost |
+| Classe | Descrição        |
+|--------|------------------|
+| 0      | Baixo custo      |
+| 1      | Custo médio      |
+| 2      | Alto custo       |
+| 3      | Custo muito alto |
 
 ---
 
 ## Dataset
 
-| File             | Description                           |
-|------------------|---------------------------------------|
-| `data/train.csv` | 2000 samples with `price_range` label |
-| `data/test.csv`  | Samples for prediction                |
+| Arquivo          | Descrição                                |
+|------------------|------------------------------------------|
+| `data/train.csv` | 2000 amostras com rótulo `faixa_preco`   |
+| `data/test.csv`  | Amostras para predição                   |
 
-> Data files are not versioned. Add them manually to the `data/` folder.
+> Os arquivos de dados não são versionados. Adicione-os manualmente à pasta `data/`.
 
-**Available features (20):** battery power, RAM, front and rear camera, internal memory, depth, weight, number of cores, screen resolution, screen size, talk time, and connectivity (Bluetooth, 4G, 3G, Wi-Fi, dual SIM, touch screen).
+**Features disponíveis (20):** potência da bateria, RAM, câmeras frontal e principal, memória interna, profundidade, peso, número de núcleos, resolução da tela, tamanho da tela, tempo de conversa e conectividade (Bluetooth, 4G, 3G, Wi-Fi, dual SIM, tela touch).
 
 ---
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 MobileNet/
 ├── data/
-│   ├── train.csv               # not versioned
-│   └── test.csv                # not versioned
+│   ├── train.csv               # não versionado
+│   └── test.csv                # não versionado
 ├── images/
-│   ├── eda/                    # stage 1 — exploratory data analysis
-│   ├── training/               # stage 2 — learning curves
-│   └── evaluation/             # stage 3-5 — metrics and results
+│   ├── eda/                    # etapa 1 — análise exploratória
+│   ├── training/               # etapa 2 — curvas de aprendizado
+│   └── evaluation/             # etapas 3-5 — métricas e resultados
 ├── notebooks/
 │   ├── 01_data_treatment.ipynb
 │   ├── 02_mlp_implementation.ipynb
@@ -64,7 +64,7 @@ MobileNet/
 
 ---
 
-## Setup
+## Configuração
 
 ```bash
 python3 -m venv venv
@@ -75,53 +75,57 @@ jupyter notebook
 
 ---
 
-## Exploratory Data Analysis
+## Análise Exploratória (EDA)
 
-**Target variable distribution**
+**Distribuição da variável alvo**
 
-![Target Distribution](images/eda/01_target_distribution.png)
+![Distribuição do Alvo](images/eda/01_target_distribution.png)
 
-**Pearson correlation heatmap**
+**Mapa de correlação de Pearson**
 
-![Correlation Heatmap](images/eda/02_correlation_heatmap.png)
+![Mapa de Correlação](images/eda/02_correlation_heatmap.png)
 
-**Top features distribution per class**
+**Distribuição das top features por classe**
 
-![Features Boxplots](images/eda/03_features_boxplots.png)
-
-**Train / Validation split**
-
-![Train Val Split](images/eda/04_train_val_split.png)
+![Boxplots das Features](images/eda/03_features_boxplots.png)
 
 ---
 
-## Project Roadmap
+## Treinamento
 
-### [DONE] Stage 1 — Data Treatment
-- CSV loading and inspection
-- Exploratory data analysis: dtypes, descriptive statistics, missing values
-- Target variable distribution plot
-- Pearson correlation heatmap
-- Top features boxplots per class
-- Normalization with `StandardScaler`
-- Train/validation split (80/20, stratified)
+**Curva de aprendizado — Entropia Cruzada**
 
-### [DONE] Stage 2 — MLP Implementation
-- Architecture definition (layers, neurons, activation functions)
-- Training with `MLPClassifier` from scikit-learn
-- Learning curve (loss per epoch)
+![Curva de Aprendizado](images/training/01_learning_curve.png)
 
-### [IN PROGRESS] Stage 3 — Model Evaluation
-- Training and validation accuracy
-- Confusion matrix
-- Classification report (precision, recall, F1-score per class)
+---
 
-### [TODO] Stage 4 — Hyperparameter Tuning
-- Grid search or random search
-- Parameters: number of layers, neurons, learning rate, regularization
-- Results comparison
+## Roadmap do Projeto
 
-### [TODO] Stage 5 — Final Results
-- Best model selection
-- Prediction on test set
-- Error analysis and conclusions
+### [CONCLUÍDO] Etapa 1 — Tratamento de Dados
+- Carregamento e inspeção dos CSVs
+- EDA: tipos de dados, estatísticas descritivas, valores ausentes
+- Distribuição da variável alvo
+- Mapa de correlação de Pearson
+- Boxplots das top features por classe
+- Normalização com `StandardScaler`
+- Divisão treino/validação (80/20, estratificada)
+
+### [CONCLUÍDO] Etapa 2 — Implementação do MLP
+- Definição da arquitetura (camadas, neurônios, funções de ativação)
+- Treinamento com `MLPClassifier` do scikit-learn
+- Curva de aprendizado (perda por época)
+
+### [EM ANDAMENTO] Etapa 3 — Avaliação do Modelo
+- Acurácia no treino e na validação
+- Matriz de confusão
+- Relatório de classificação (precisão, revocação, F1-score por classe)
+
+### [TODO] Etapa 4 — Ajuste de Hiperparâmetros
+- Grid search ou random search
+- Parâmetros: número de camadas, neurônios, taxa de aprendizado, regularização
+- Comparação de resultados
+
+### [TODO] Etapa 5 — Resultados Finais
+- Seleção do melhor modelo
+- Predição no conjunto de teste
+- Análise de erros e conclusões
