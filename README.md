@@ -109,6 +109,22 @@ jupyter notebook
 
 ---
 
+## Avaliação do Modelo
+
+**Matriz de confusão**
+
+![Matriz de Confusão](images/evaluation/01_confusion_matrix.png)
+
+> O modelo acertou 368 das 400 amostras de validação, atingindo **92% de acurácia**. Todos os erros ocorrem entre classes adjacentes (ex.: Custo médio confundido com Baixo ou Alto custo) — nenhum salto entre extremos (Baixo → Muito alto), o que indica que o modelo captura bem a ordem das faixas de preço. A classe **Alto custo** é a mais difícil, com 13 erros no total.
+
+**Métricas de classificação por classe**
+
+![Métricas por Classe](images/evaluation/02_metrics_per_class.png)
+
+> As classes extremas (**Baixo custo** e **Custo muito alto**) obtiveram F1-Score de 0,95 — as mais fáceis de separar por terem apenas um vizinho de classe. As classes intermediárias (**Custo médio** e **Alto custo**) ficaram em 0,89, penalizadas pela ambiguidade natural entre faixas de preço próximas. O modelo apresenta desempenho consistente entre todas as classes, sem desequilíbrio relevante.
+
+---
+
 ## Roadmap do Projeto
 
 ### [CONCLUÍDO] Etapa 1 — Tratamento de Dados
@@ -125,7 +141,7 @@ jupyter notebook
 - Treinamento com `MLPClassifier` do scikit-learn
 - Curva de aprendizado (perda por época)
 
-### [EM ANDAMENTO] Etapa 3 — Avaliação do Modelo
+### [CONCLUÍDO] Etapa 3 — Avaliação do Modelo
 - Acurácia no treino e na validação
 - Matriz de confusão
 - Relatório de classificação (precisão, revocação, F1-score por classe)
